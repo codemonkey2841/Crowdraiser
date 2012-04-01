@@ -9,12 +9,9 @@ $project = get_entity(get_input('guid'));
 
 $page_owner = elgg_get_page_owner_entity();
 
-//$crumbs_title = $page_owner->name;
-
-//elgg_push_breadcrumb($crumbs_title, "crowdraiser/owner/$page_owner->username");
-
 $title = $project->title;
 
+elgg_push_breadcrumb(elgg_echo('crowdraiser'), "crowdraiser/all");
 elgg_push_breadcrumb($title);
 
 $content = elgg_view_entity(
