@@ -42,11 +42,40 @@ if (elgg_in_context('widgets')) {
 }
 
 if( $full ) {
+   $guid = $crowdraiser->guid;
    elgg_extend_view('page/elements/sidebar', 'crowdraiser/sidebar');
-   print "<h5>Status: " . elgg_echo($crowdraiser->status) . "</h5>";
+
+   if( $crowdraiser->canEdit() ) {
+      // edit link
+      print elgg_view('output/url',
+         array(
+            'href' => "/crowdraiser/edit/$guid",
+            'text' => "Edit Project",
+            'class' => 'elgg-button',
+         )
+      );
+
+      // delete link
+      print elgg_view('output/url',
+         array(
+            'href' => "/action/crowdraiser/delete?guid=$guid",
+            'is_action' => true,
+            'confirm_link' => true,
+            'text' => "Delete Project",
+            'class' => 'elgg-button',
+         )
+      );
+   }
+
+   print "<br /><br />";
+   print "Status: " . elgg_echo($crowdraiser->status);
    print $crowdraiser->description;
-   print "<hr />";
-   print "<h3>Updates</h3>";
+   if( $owner->guid == elgg_get_logged_in_user_guid () ) { // check if user is a owner
+      $form = true;
+   } else {
+      $form = false;
+   }
+   print elgg_view_comments($crowdraiser, $form);
 } else {
    $params = array(
       'entity' => $crowdraiser,
