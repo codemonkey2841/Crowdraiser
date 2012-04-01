@@ -5,7 +5,7 @@
  
 <div>
    <label><?php echo elgg_echo("crowdraiser:goal"); ?></label><br />
-   <?php echo elgg_view('input/text',array('name' => 'crowdraiser:goal')); ?>
+   <?php echo elgg_view('input/text',array('name' => 'goal')); ?>
 </div>
  
 <div>

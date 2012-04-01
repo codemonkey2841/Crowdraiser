@@ -9,6 +9,8 @@ $content = elgg_list_entities(
    array(
       'type' => 'object',
       'subtype' => 'crowdraiser',
+      'full_view' => false,
+      'list_type' => 'gallery',
    )
 );
 
@@ -24,7 +26,6 @@ $body = elgg_view_layout(
       'filter_context' => 'all',
       'content' => $content,
       'title' => $title,
-      'sidebar' => elgg_view('crowdraiser/sidebar'),
    )
 );
 
