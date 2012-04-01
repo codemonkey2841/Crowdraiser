@@ -1,12 +1,14 @@
 <?php
    // get the form inputs
    $title = get_input('title');
+   $status = get_input('status', 'crowdraiser:status:funding');
    $goal = get_input('goal');
    $desc = get_input('description');
  
    // create a new crowdraiser object
    $crowdraiser = new ElggProject();
    $crowdraiser->title = $title;
+   $crowdraiser->status = $status;
    $crowdraiser->goal = $goal;
    $crowdraiser->description = $desc;
  

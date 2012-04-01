@@ -20,7 +20,13 @@ $english = array(
             . 'removed, is invalid, or you do not have permission to view it.',
 
         // River
-        'river:create:object:crowdraiser' => '%s created a new project %s'
+        'river:create:object:crowdraiser' => '%s created a new project %s',
+
+        // Statuses
+        'crowdraiser:status:funding' => 'Funding',
+        'crowdraiser:status:progress' => 'In Progress',
+        'crowdraiser:status:completed' => 'Completed',
+
 );
 
 add_translation('en', $english);

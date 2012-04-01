@@ -15,7 +15,9 @@ if (!$crowdraiser) {
 
 $owner = $crowdraiser->getOwnerEntity();
 $container = $crowdraiser->getContainerEntity();
-$excerpt = $crowdraiser->description . crowdraiser_progress_bar(0, $crowdraiser->goal);
+   
+$excerpt = "<h5>Status: " . elgg_echo($crowdraiser->status) . "</h5>" 
+   . $crowdraiser->description . crowdraiser_progress_bar(0, $crowdraiser->goal);
 
 $owner_link = elgg_view('output/url', array(
    'href' => "crowdraiser/owner/$owner->username",
@@ -41,6 +43,7 @@ if (elgg_in_context('widgets')) {
 
 if( $full ) {
    elgg_extend_view('page/elements/sidebar', 'crowdraiser/sidebar');
+   print "<h5>Status: " . elgg_echo($crowdraiser->status) . "</h5>";
    print $crowdraiser->description;
    print "<hr />";
    print "<h3>Updates</h3>";
